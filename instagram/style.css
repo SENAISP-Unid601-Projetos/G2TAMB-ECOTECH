@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.new-post-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #0095f6;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.new-post-button:hover {
+    background-color: #007bb5;
+}
+
+.feed {
+    width: 100%;
+}
+
+.post {
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-user h2 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.post-user span {
+    color: #8e8e8e;
+    font-size: 14px;
+}
+
+.post-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.post-body p {
+    margin: 0;
+    font-size: 14px;
+    color: #262626;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.post-footer button {
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    color: #262626;
+    cursor: pointer;
+}
+
+.post-footer button:hover {
+    color: #0095f6;
+}
