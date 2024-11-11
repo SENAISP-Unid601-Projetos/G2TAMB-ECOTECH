@@ -1,0 +1,377 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #c1e4b2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 480px;
+    margin: 40px auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+header {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.profile-photo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-photo img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e0e0e0;
+}
+
+.profile-photo button {
+    margin-top: 10px;
+    padding: 8px 18px;
+    border: 1px solid #ddd;
+    background: #ffffff;
+    color: #333;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.profile-photo button:hover {
+    background: #f0f0f0;
+    border-color: #ccc;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-form label {
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #555;
+}
+
+.edit-form input,
+.edit-form textarea {
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #333;
+}
+
+.edit-form textarea {
+    resize: vertical;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-group button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.button-group .save {
+    background: #c1e4b2;
+    color: #fff;
+}
+
+.button-group .save:hover {
+    background:#c1e4b2;
+}
+
+.button-group .cancel {
+    background: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.button-group .cancel:hover {
+    background: #e0e0e0;
+}
+
+
+/* Cabeçalho */
+.header-area {
+    background-color: white;
+    position: absolute;
+    height: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: 80px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    -webkit-transition: all .5s ease 0s;
+    -moz-transition: all .5s ease 0s;
+    -o-transition: all .5s ease 0s;
+    transition: all .5s ease 0s;         
+}
+
+.header-sticky {
+  background-color: white;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+}
+
+.header-area .main-nav {
+    height: 80px;
+    background: transparent;
+    display: flex;
+    padding: 15px 0px;
+    z-index: 1000;
+}
+
+.header-area .main-nav .logo {
+    border-right: 1px solid #27292a00;
+    flex-basis: 15%;
+    margin-right: 2%;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.header-area .main-nav .logo img {
+  width:  50px;
+  height: 50px;
+  margin-left: 50%;
+}
+
+.background-header .main-nav .logo {
+  margin-top: 8px;
+}
+
+.background-header .main-nav .logo img {
+  width: 180px;
+}
+
+.header-area .main-nav #search {
+    position: relative;
+}
+
+.header-area .main-nav #search input {
+    height: 46px;
+    width: 180px;
+    border-radius: 23px;
+    border: none;
+    color: #074b11;
+    font-size: 14px;
+    padding: 0px 15px 0px 45px;
+}
+
+.header-area .main-nav #search i {
+    position: absolute;
+    color: #074b11;
+    left: 30px;
+    top: 20px;
+    width: 18px;
+    height: 18px;
+    font-size: 16px;
+}
+
+.header-area .nav {
+    list-style: none;
+    display: inline-flex;
+    flex-basis: 50%;
+    justify-content: flex-end;
+    vertical-align: middle;
+    text-align: right;           
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    
+}
+
+.header-area .main-nav .nav li {
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline-block;
+}
+
+.header-area .nav a {
+  text-decoration: none;
+  color: #666;
+  font-size: 14px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.header-area .nav a.active,
+.header-area .nav a:hover {
+  color: #5ee785;
+}
+
+.header-area .nav img {
+  border-radius: 50%;
+  margin-left: 5px;
+  margin-top: 0px;
+  width: 50px;
+  height: 50px;
+}
+
+.menu-trigger {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  width: 32px;
+  height: 30px;
+  margin-left: auto;
+  color: transparent;
+  align-items: center;
+}
+
+.menu-trigger span,
+.menu-trigger span:before,
+.menu-trigger span:after {
+  color: transparent;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #5ee785;
+  transition: all 0.4s ease;
+  
+}
+.menu-trigger span:before {
+  transform: translateY(-8px);
+}
+
+.menu-trigger span:after {
+  transform: translateY(8px);
+}
+
+.menu-trigger.active span {
+  background: transparent;
+}
+
+.menu-trigger.active span:before {
+  transform: translateY(0) rotate(45deg);
+}
+
+.menu-trigger.active span:after {
+  transform: translateY(0) rotate(-45deg);
+}
+
+
+/*BOTÃO ESTILO COMEÇO*/
+.button {
+    display: block;
+    position: relative;
+    width: 56px;
+    height: 56px;
+    margin-left: 15px;
+    overflow: hidden;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+  }
+  
+  .button:before,
+  .button:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    inset: 7px;
+  }
+  
+  .button:before {
+    border: 4px solid #ccc;
+    transition: opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
+      transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+  }
+  
+  .button:after {
+    border: 4px solid #96f09a;
+    transform: scale(1.3);
+    transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+      transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0;
+  }
+  
+  .button:hover:before,
+  .button:focus:before {
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+      transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .button:hover:after,
+  .button:focus:after {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
+      transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+  }
+  
+  .button-box {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .button-elem {
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: 17px 18px 0 18px;
+    transform: rotate(180deg);
+    fill: #ccc;
+  }
+  
+  .button:hover .button-box,
+  .button:focus .button-box {
+    transition: 0.4s;
+    transform: translateX(-56px);
+  }
+  
+/*BOTÃO ESTILO FINAL*/
+.arquivo {
+  padding: 10px 20px;
+  color: #074b11;
+  border:1px solid #074b11;
+  border-radius: 6px; 
+  cursor: pointer; 
+  font-size: 16px; 
+  font-weight: 500; 
+  width: 20%; 
+  margin: auto; 
+  transition: all 0.3s ease;
+}
+
+.arquivo:hover{
+  background-color: #96f09a;
+}

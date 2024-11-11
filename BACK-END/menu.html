@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Exemplo</title>
+    <style>
+        /* Reset básico */
+        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, figure, header, nav, section, article, aside, footer, figcaption {
+          margin: 0;
+          padding: 0;
+          border: 0;
+          outline: 0;
+          box-sizing: border-box;
+        }
+
+        /* Corpo da página */
+        body {
+          font-family: Arial, sans-serif;
+          line-height: 1.6;
+          color: #333;
+          overflow-x: hidden;
+        }
+
+        /* Cabeçalho */
+        .header-area {
+            background-color: transparent;
+            position: absolute;
+            height: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+            -webkit-transition: all .5s ease 0s;
+            -moz-transition: all .5s ease 0s;
+            -o-transition: all .5s ease 0s;
+            transition: all .5s ease 0s;         
+        }
+
+        .header-sticky {
+          background-color: #fff;
+          box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .header-area .main-nav {
+            min-height: 80px;
+            background: transparent;
+            display: flex;
+            padding: 15px 0px;
+            border-radius: 50px;
+        }
+
+        .header-area .main-nav .logo {
+            border-right: 1px solid #27292a00;
+            flex-basis: 25%;
+            margin-right: 5%;
+            -webkit-transition: all 0.3s ease 0s;
+            -moz-transition: all 0.3s ease 0s;
+            -o-transition: all 0.3s ease 0s;
+            transition: all 0.3s ease 0s;
+        }
+
+        .header-area .main-nav .logo img {
+          width: 191px;
+        }
+
+        .background-header .main-nav .logo {
+          margin-top: 8px;
+        }
+
+        .background-header .main-nav .logo img {
+          width: 180px;
+        }
+
+        .header-area .main-nav #search {
+            position: relative;
+        }
+
+        .header-area .main-nav #search input {
+            height: 46px;
+            border-radius: 23px;
+            border: none;
+            color: #074b11;
+            font-size: 14px;
+            padding: 0px 15px 0px 45px;
+        }
+        .header-area .main-nav #search i {
+            position: absolute;
+            color: #074b11;
+            left: 30px;
+            top: 20px;
+            width: 18px;
+            height: 18px;
+            font-size: 16px;
+        }
+
+        .header-area .nav {
+            list-style: none;
+            display: flex;
+            flex-basis: 70%;
+            justify-content: flex-end;
+            vertical-align: middle;
+            text-align: right;           
+            -webkit-transition: all 0.3s ease 0s;
+            -moz-transition: all 0.3s ease 0s;
+            -o-transition: all 0.3s ease 0s;
+            transition: all 0.3s ease 0s;
+            
+        }
+
+        .header-area .main-nav .nav li {
+            padding-left: 10px;
+            padding-right: 10px;
+            display: inline-block;
+        }
+
+        .header-area .nav a {
+          text-decoration: none;
+          color: #666;
+          font-size: 14px;
+          padding: 10px 15px;
+          border-radius: 20px;
+          transition: color 0.3s, background-color 0.3s;
+        }
+
+        .header-area .nav a.active,
+        .header-area .nav a:hover {
+          color: #5ee785;
+        }
+
+        .header-area .nav img {
+          border-radius: 50%;
+          margin-left: 5px;
+        }
+
+        .menu-trigger {
+          display: none;
+          cursor: pointer;
+          position: relative;
+          width: 32px;
+          height: 30px;
+          margin-left: auto;
+        }
+
+        .menu-trigger span,
+        .menu-trigger span:before,
+        .menu-trigger span:after {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 2px;
+          background: #5ee785;
+          transition: all 0.4s ease;
+        }
+
+        .menu-trigger span:before {
+          transform: translateY(-8px);
+        }
+
+        .menu-trigger span:after {
+          transform: translateY(8px);
+        }
+
+        .menu-trigger.active span {
+          background: transparent;
+        }
+
+        .menu-trigger.active span:before {
+          transform: translateY(0) rotate(45deg);
+        }
+
+        .menu-trigger.active span:after {
+          transform: translateY(0) rotate(-45deg);
+        }
+
+        /* Responsivo */
+        @media (max-width: 992px) {
+          .header-area {
+            flex-direction: column;
+            align-items: flex-start;
+            height: auto;
+            padding: 10px;
+          }
+      
+          .header-area .search-input {
+            margin: 10px 0;
+          }
+      
+          .header-area .nav {
+            display: none;
+            width: 100%;
+            flex-direction: column;
+          }
+      
+          .header-area .nav.active {
+            display: flex;
+          }
+      
+          .header-area .nav li {
+            margin: 0;
+            width: 100%;
+          }
+      
+          .header-area .nav a {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 15px;
+          }
+      
+          .menu-trigger {
+            display: block;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .header-area .search-input input {
+            font-size: 12px;
+          }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo">
+                            <img src="assets/images/logo.png" alt="Logo">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        
+                        <!-- ***** Search Start ***** -->
+                        <div class="search-input">
+                            <form id="search" action="#" style="display: flex; align-items: center;">
+                              <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword" onkeypress="handle" />
+                              <i class="fa fa-search"></i>
+                            </form>
+                          </div>
+                        <!-- ***** Search End ***** -->
+                        
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a href="....html" class="active">Home</a></li>
+                            <li><a href="....html">Post</a></li>
+                            <li><a href="....html">...</a></li>
+                            <li><a href="....html">...</a></li>
+                            <li><a href="....html">Perfil <img src="assets/images/" alt="imagem_perfil"></a></li>
+                        </ul>   
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- Include FontAwesome for search icon -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<link rel="icon" href="img/eco.png" type="image/png">
+	<meta name="ecotech_desenvolvimento" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <title>EcoTech</title>
+    
+    <!-- Include FontAwesome for search icon -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+    <script> 
+        window.addEventListener("DOMContentLoaded", () => {
+            const cnpj = document.querySelector("body > div > form > label:nth-child(3) > input");
+
+            cnpj.addEventListener("input", () => {
+                let numCnpj = cnpj.value.replace(/[^\d]/g,"");
+                cnpj.value = numCnpj;
+            })
+        })
+    </script> 
+</head>
+<body>   
+        <!-- ***** Header Area COMEÇO ***** -->
+        <header class="header-area header-sticky">
+            <div>
+                <div class="row">
+                    <div class="col-12">
+                        <nav class="main-nav">
+                             <!--BOTÃO VOLTAR COMEÇO-->
+                            <button class="button" id="voltar">
+                                <div class="button-box">
+                                  <span class="button-elem">
+                                    <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                                      <path
+                                        d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                                      ></path>
+                                    </svg>
+                                  </span>
+                                  <span class="button-elem">
+                                    <svg viewBox="0 0 46 40">
+                                      <path
+                                        d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                                      ></path>
+                                    </svg>
+                                  </span>
+                                </div>
+                              </button>                                       
+                            <!--BOTÃO VOLTAR FINAL -->
+                            <!-- ***** Logo Start ***** -->
+                            <a href="index.html" class="logo">
+                                <img src="img/eco.png" alt="Logo">
+                            </a>
+                            <!-- ***** Logo End ***** -->
+                            
+                            <!-- ***** Search Start ***** -->
+                            <div class="search-input">
+                                <form id="search" action="#" style="display: flex; align-items: center;">
+                                  <input type="text" placeholder="Pesquise aqui" id='searchText' name="searchKeyword" onkeypress="handle" />
+                                  <i class="fa fa-search" id="pesquisar"></i>
+                                </form>
+                              </div>
+                            <!-- ***** Search End ***** -->
+                            
+                            <!-- ***** Menu Start ***** -->
+                            <ul class="nav">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="index.html#feature-area">Publicações</a></li>
+                                <li><a href="index.html#section3">Procurar</a></li>
+                                <li><a href="index.html#section4">Login</a></li>
+                                <li><a class="active">Cadastro</a></li>
+                                <!-- <li><a href="perfil.php" style="padding: 0%; width: 105px;">Perfil</a></li> -->
+                                <!-- <li><a href="perfil.php" style="padding: 0%; width: 105px;"> <img src="img/robertaoperfil.jpg" alt="imagem_perfil"></a></li> -->
+                            </ul>   
+                            
+                            <a class='menu-trigger'>
+                                <span>Menu</span>
+                            </a>
+                            <!-- ***** Menu End ***** -->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- ***** Header Area Final ***** -->
+       
+        <div class="container" style="margin: 90px;">      
+          <form class="form-control" action="" method="POST"> 
+            <p class="title">Cadastro</p>
+                <label>
+                    <input id="email" name="email" class="input" type="text" placeholder="" required="">
+                    <span>Email</span>
+                </label>
+                <label>
+                  <input id="cnpj" name="cnpj"  class="input" type="text" placeholder=" " maxlength="14" pattern="\d{14}" required="">
+                  <span>CNPJ</span>
+              </label>
+                <label>
+                    <input id="senha" name="senha" class="input" type="password" placeholder="" required="">
+                    <span>Senha</span>
+                </label>
+            
+            <label>
+                <input id="Cosenha" name="Cosenha" class="input" type="password" placeholder=" " required>
+                <span>Confirme sua senha</span>
+            </label>
+            
+            <button id="cadastro" class="submit-btn" onClick="enviarDados()">Cadastrar</button>
+          </form>
+
+    </div>
+   
+</body>
+<script>
+
+function enviarDados(event) {
+    if(document.getElementById("senha").value == document.getElementById("Cosenha").value){
+      // Impede o comportamento padrão do formulário
+      event.preventDefault();
+
+      // Cria um formulário dinamicamente
+      var form = document.createElement("form");
+      form.method = "POST";
+      form.action = "cadastro_empresa.php";  // Enviar para o arquivo PHP
+
+      // nome
+      var nomeInput = document.createElement("input");
+      nomeInput.type = "hidden";
+      nomeInput.name = "nome";
+      nomeInput.value = localStorage.getItem("nome");
+      form.appendChild(nomeInput);
+
+      // sobrenome
+      var sobrenomeInput = document.createElement("input");
+      sobrenomeInput.type = "hidden";
+      sobrenomeInput.name = "sobrenome";
+      sobrenomeInput.value = localStorage.getItem("sobrenome");
+      form.appendChild(sobrenomeInput);
+
+      // telefone
+      var telefoneInput = document.createElement("input");
+      telefoneInput.type = "hidden";
+      telefoneInput.name = "telefone";
+      telefoneInput.value = localStorage.getItem("telefone");
+      form.appendChild(telefoneInput);
+
+      // data_nascimento
+      var dataNascimentoInput = document.createElement("input");
+      dataNascimentoInput.type = "hidden";
+      dataNascimentoInput.name = "data_nascimento";
+      dataNascimentoInput.value = localStorage.getItem("data_nascimento");
+      form.appendChild(dataNascimentoInput);
+
+      // email
+      var emailInput = document.createElement("input");
+      emailInput.type = "hidden";
+      emailInput.name = "email";
+      emailInput.value = document.getElementById("email").value;  // Captura o valor do campo
+      form.appendChild(emailInput);
+
+      // cnpj
+      var cnpjInput = document.createElement("input");
+      cnpjInput.type = "hidden";
+      cnpjInput.name = "cnpj";
+      cnpjInput.value = document.getElementById("cnpj").value;  // Captura o valor do campo
+      form.appendChild(cnpjInput);
+
+      // senha
+      var senhaInput = document.createElement("input");
+      senhaInput.type = "hidden";
+      senhaInput.name = "senha";
+      senhaInput.value = document.getElementById("senha").value;  // Captura o valor do campo
+      form.appendChild(senhaInput);
+
+      // Adiciona o formulário ao body e envia
+      document.body.appendChild(form);
+      form.submit();
+    } else{
+      alert("senhas diferentes");
+    }
+}
+  // Adiciona o listener de evento ao botão
+  document.getElementById("cadastro").addEventListener("click", enviarDados);
+</script>
+
+
+<script>
+  var voltar = document.getElementById("voltar");
+    voltar.addEventListener("click", ()=>{
+      window.location.href = "index.html#section4";
+  })
+</script>
+</html>

@@ -1,0 +1,577 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  overflow-x: hidden;
+}
+
+body::after {
+  content: '';
+  background-color: black;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: .5;
+  z-index: -1;
+}
+
+/* Cabeçalho */
+.header-area {
+  background-color: white;
+  position: absolute;
+  height: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 80px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  -webkit-transition: all .5s ease 0s;
+  -moz-transition: all .5s ease 0s;
+  -o-transition: all .5s ease 0s;
+  transition: all .5s ease 0s;         
+}
+
+.header-sticky {
+background-color: white;
+box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+}
+
+.header-area .main-nav {
+  height: 80px;
+  background: white;
+  display: flex;
+  padding: 15px 0px;
+  z-index: 1000;
+}
+
+.header-area .main-nav .logo {
+  border-right: 1px solid #27292a00;
+  flex-basis: 15%;
+  margin-right: 2%;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.header-area .main-nav .logo img {
+width:  50px;
+height: 50px;
+margin-left: 50%;
+}
+
+.background-header .main-nav .logo {
+margin-top: 8px;
+}
+
+.background-header .main-nav .logo img {
+width: 180px;
+}
+
+.header-area .main-nav #search {
+  position: relative;
+}
+
+.header-area .main-nav #search input {
+  height: 46px;
+  width: 180px;
+  border-radius: 23px;
+  border: none;
+  color: #074b11;
+  font-size: 14px;
+  padding: 0px 15px 0px 45px;
+}
+
+.header-area .main-nav #search i {
+  position: absolute;
+  color: #074b11;
+  left: 30px;
+  top: 20px;
+  width: 18px;
+  height: 18px;
+  font-size: 16px;
+}
+
+.header-area .nav {
+  list-style: none;
+  display: inline-flex;
+  flex-basis: 50%;
+  justify-content: flex-end;
+  vertical-align: middle;
+  text-align: right;           
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  
+}
+
+.header-area .main-nav .nav li {
+  padding-left: 10px;
+  padding-right: 10px;
+  display: inline-block;
+}
+
+.header-area .nav a {
+text-decoration: none;
+color: #666;
+font-size: 14px;
+padding: 10px 15px;
+border-radius: 20px;
+transition: color 0.3s, background-color 0.3s;
+}
+
+.header-area .nav a.active,
+.header-area .nav a:hover {
+color: #5ee785;
+}
+
+.header-area .nav img {
+border-radius: 50%;
+margin-left: 5px;
+margin-top: 0px;
+width: 50px;
+height: 50px;
+}
+
+.menu-trigger {
+display: none;
+cursor: pointer;
+position: relative;
+width: 32px;
+height: 30px;
+margin-left: auto;
+color: transparent;
+align-items: center;
+}
+
+.menu-trigger span,
+.menu-trigger span:before,
+.menu-trigger span:after {
+color: transparent;
+content: "";
+display: block;
+width: 100%;
+height: 2px;
+background: #5ee785;
+transition: all 0.4s ease;
+
+}
+.menu-trigger span:before {
+transform: translateY(-8px);
+}
+
+.menu-trigger span:after {
+transform: translateY(8px);
+}
+
+.menu-trigger.active span {
+background: transparent;
+}
+
+.menu-trigger.active span:before {
+transform: translateY(0) rotate(45deg);
+}
+
+.menu-trigger.active span:after {
+transform: translateY(0) rotate(-45deg);
+}
+
+
+/*BOTÃO ESTILO COMEÇO*/
+.button {
+  display: block;
+  position: relative;
+  width: 56px;
+  height: 56px;
+  margin-left: 15px;
+  overflow: hidden;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+}
+
+.button:before,
+.button:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  inset: 7px;
+}
+
+.button:before {
+  border: 4px solid #ccc;
+  transition: opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
+    transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+}
+
+.button:after {
+  border: 4px solid #96f09a;
+  transform: scale(1.3);
+  transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0;
+}
+
+.button:hover:before,
+.button:focus:before {
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.button:hover:after,
+.button:focus:after {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
+    transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+}
+
+.button-box {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.button-elem {
+  display: block;
+  width: 25px;
+  height: 20px;
+  margin: 17px 18px 0 5px;
+  transform: rotate(180deg);
+  fill: #ccc;
+}
+
+.button:hover .button-box,
+.button:focus .button-box {
+  transition: 0.4s;
+  transform: translateX(-56px);
+}
+
+/*BOTÃO ESTILO FINAL*/
+
+
+
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+.form-control {
+  margin: 20px;
+  background-color: #f7f7f7;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  width: 450px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 25px;
+  border-radius: 8px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.message {
+  font-size: 14px;
+  color: #777;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.flex {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+label {
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+}
+/*forms Cadastro*/
+.nome {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+.nome:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+.nome:focus + span,
+.nome:not(:placeholder-shown) + span {
+  top: -14px;
+  left: 8px;
+  font-size: 12px;
+  color: #4CAF50;
+}
+.rua {
+  width: 155%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+.rua:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+.rua:focus + span,
+.rua:not(:placeholder-shown) + span {
+  top: -14px;
+  left: 8px;
+  font-size: 12px;
+  color: #4CAF50;
+}
+.num {
+  width: 45%;
+  margin-left: 130px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+.num:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+.num:focus + span,
+.num:not(:placeholder-shown) + span {
+  top: -14px;
+  left: 8px;
+  font-size: 12px;
+  color: #4CAF50;
+}
+.bairro {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+.bairro:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+.bairro:focus + span,
+.bairro:not(:placeholder-shown) + span {
+  top: -14px;
+  left: 8px;
+  font-size: 12px;
+  color: #4CAF50;
+}
+.desc {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+.desc:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+.desc:focus + span,
+.desc:not(:placeholder-shown) + span {
+  top: -14px;
+  left: 8px;
+  font-size: 12px;
+  color: #4CAF50;
+}
+/*fim forms Cadastro*/
+/*BOTÃO ESTILO FINAL*/
+.arquivo {
+  color: #074b11;
+  border:1px solid #074b11;
+  border-radius: 6px; 
+  cursor: pointer; 
+  font-size: 16px; 
+  font-weight: 500;  
+  margin: auto; 
+  transition: all 0.3s ease;
+  height: 40px;
+}
+
+.arquivo:hover{
+  background-color: #96f09a;
+}
+/*FIM BOTÃO ESTILO FINAL*/
+
+
+
+
+.nome:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+span {
+  position: absolute;
+  top: 0;
+  left: 12px;
+  padding: 0 4px;
+  background-color: #ffffff;
+  font-size: 16px;
+  color: #888;
+  transition: all 0.3s ease;
+}
+
+
+.account-type {
+  border: none;
+  margin-bottom: 20px;
+}
+
+.account-type legend {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.account-type label {
+  display: block;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #45a049;
+}
+
+.signin {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signin a {
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signin a:hover {
+  text-decoration: underline;
+}
+
+/* radio */
+.radio-button {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 10px;
+  position: relative;
+  align-items: center;
+  color: #555;
+}
+
+.radio-button input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.radio {
+  position: relative;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border-radius: 70%;
+  border: 2px solid #ccc;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  transform: translateZ(-20px);
+  transition: all 0.3s ease-in-out;
+}
+
+.radio::before {
+  position: absolute;
+  content: '';
+  width: 11px;
+  height: 11px;
+  top: 3px;
+  left: 3px;
+  border-radius: 50%;
+  background-color: green;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.radio-button input[type="radio"]:checked + .radio {
+  border-color: #5cb85c;
+  transform: translateZ(0px);
+  background-color: #fff;
+}
+
+.radio-button input[type="radio"]:checked + .radio::before {
+  opacity: 1;
+}
+
+.date-fields {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.date-fields select {
+  border-radius: 8px;
+  padding: 12px;
+  width: 100%;
+  border: 1px solid #ddd;
+  background-color: #f7f7f7;
+  font-size: 16px;
+}
+
+.date-fields select:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
