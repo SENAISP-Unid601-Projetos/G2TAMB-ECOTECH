@@ -6,25 +6,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   outline: 0;
   box-sizing: border-box;
 }
-/*botao ver mais*/
-
-.vermais{
-  background-color: #f3f7fe;
-  color: #48d16c;
-  border: none;
-  cursor: pointer;
-  border-radius: 8px;
-  width: 100px;
-  height: 45px;
-  transition: 0.3s;
-}
-
-.vermais:hover {
-  background-color: #7bed77;
-  box-shadow: 0 0 0 5px #3bf6705f;
-  color: #fff;
-}
-
 
 /* Corpo da página */
 body {
@@ -641,9 +622,7 @@ input {
   background: rgba(242, 242, 242, 0.4);
   width: 300px;
 }
-#comment.form-control {
 
-}
 .form-group button {
   background: #262628 none repeat scroll 0 0;
   color: #fff;
@@ -963,4 +942,27 @@ input {
 
 .navbar-fixed-bottom,.navbar-fixed-top {
   background-color: rgb(56, 62, 76);
+}
+
+/*botao ver mais*/
+
+.vermais{
+  background-color: #f3f7fe;
+  color: #48d16c;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 100px;
+  height: 45px;
+  transition: 0.3s;
+}
+
+.vermais:hover {
+  background-color: #7bed77;
+  box-shadow: 0 0 0 5px #3bf6705f;
+  color: #fff;
+}
+
+#loginAdm:hover{
+  color: #074b11;
 }

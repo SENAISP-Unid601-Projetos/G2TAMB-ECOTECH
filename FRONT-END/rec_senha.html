@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>EcoTech</title>
 	<link rel="icon" href="img/eco.png" type="image/png">
+	<link rel="icon" href="img/eco.png" type="image/png">
 	<meta name="ecotech_desenvolvimento" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/cadastro.css">
     
@@ -36,7 +37,7 @@
                               </button>                                       
                             <!--BOTÃO VOLTAR FINAL -->
                             <!-- ***** Logo Start ***** -->
-                            <a href="index.html" class="logo">
+                            <a href="home.php" class="logo">
                                 <img src="img/eco.png" alt="Logo">
                             </a>
                             <!-- ***** Logo End ***** -->
@@ -52,15 +53,15 @@
                             
                             <!-- ***** Menu Start ***** -->
                             <ul class="nav">
-                                <li><a href="index.html">Home</a></li> 
-                                <li><a href="index.html#feature-area">Publicações</a></li>
+                                <li><a href="home.php">Home</a></li> 
+                                <li><a href="home.php#feature-area">Publicações</a></li>
                                 <li><a href="index.html#section3">Procurar</a></li>
-                                <li><a href="index.html#section4">Login</a></li>
+                                <li><a href="home.php#section4">Login</a></li>
                                 <li><a href="cadastro.html">Cadastro</a></li>                            
-                                <li> <a href="criarpost.html">Postar</a></li>
-                                <li> <a href="forum.html">Fórum</a></li>
-                                <li><a href="perfil.html" style="padding: 0%; width: 105px;">Perfil</a></li>
-                                <li><a href="perfil.html" style="padding: 0%; width: 105px;"> <img src="img/robertaoperfil.jpg" alt="imagem_perfil"></a></li>
+                                <li> <a href="criarpost.php">Postar</a></li>
+                                <li> <a href="forum.php">Fórum</a></li>
+                                <li><a href="perfil.php" style="padding: 0%; width: 105px;">Perfil</a></li>
+                                <li><a href="perfil.php" style="padding: 0%; width: 105px;"> <img src="img/robertaoperfil.jpg" alt="imagem_perfil"></a></li>
                             </ul>   
                             
                             <a class='menu-trigger'>
@@ -75,10 +76,10 @@
         <!-- ***** Header Area Final ***** -->
    
     <div class="container" style="margin: 90px;">
-        <form class="form-control" action="nova_senha.html"> 
+        <form class="form-control" action="recupera_senha.php" method="POST"> 
             <p class="title">Recuperar senha</p>
                 <label>
-                    <input class="input" type="text" placeholder="" required="" name="email" id="mail">
+                    <input class="input" type="text" placeholder="" required="" name="email" id="email">
                     <span>Email</span>
                 </label>
             
@@ -92,7 +93,7 @@
 <script>
     var voltar = document.getElementById("voltar");
       voltar.addEventListener("click", ()=>{
-        window.location.href = "index.html#section4";
+        window.location.href = "home.php#section4";
     })
   </script>
 </html>

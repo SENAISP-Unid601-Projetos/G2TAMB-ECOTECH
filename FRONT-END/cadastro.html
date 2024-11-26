@@ -6,15 +6,27 @@
 	<meta name="ecotech_desenvolvimento" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/cadastro.css">
     <title>EcoTech</title>
+	<link rel="icon" href="img/eco.png" type="image/png">
     
     <script>
         function verificaPessoa() {
+            var nome = document.getElementById("nome").value;
+            var sobrenome = document.getElementById("sobrenome").value;
+            var telefone = document.getElementById("telefone").value;
+            var data_nascimento = document.getElementById("data_nascimento").value;
             var user = document.getElementById("user");
             var empresa = document.getElementById("empresa");
+
+            localStorage.setItem("nome", nome);
+            localStorage.setItem("sobrenome", sobrenome);
+            localStorage.setItem("telefone", telefone);
+            localStorage.setItem("data_nascimento", data_nascimento);
+
             console.log(user.checked, empresa.checked);
             
             if(user.value == "user" && user.checked === true){
                 open("cadastro2.html");
+
                 //window.location.href = "./cadastro2.html";
             }
             else if(empresa.value == "empresa" && empresa.checked === true){
@@ -67,27 +79,15 @@
                         </a>
                         <!-- ***** Logo End ***** -->
                         
-                        <!-- ***** Search Start ***** -->
-                        <div class="search-input">
-                            <form id="search" action="#" style="display: flex; align-items: center;">
-                              <input type="text" placeholder="Pesquise aqui" id='searchText' name="searchKeyword" onkeypress="handle" />
-                              <i class="fa fa-search" id="pesquisar"></i>
-                            </form>
-                          </div>
-                        <!-- ***** Search End ***** -->
-                        
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li><a href="index.html">Home</a></li>
                             <li><a href="index.html#feature-area">Publicações</a></li>
                             <li><a href="index.html#section3">Procurar</a></li>
                             <li><a href="index.html#section4">Login</a></li>
-							<li><a class="active">Cadastro</a></li>
-                            <li><a href="reciclagem.html">Coleta</a></li>
-							<li> <a href="forum.html">Fórum</a></li>                            
-                            <li> <a href="criarpost.html">Postar</a></li>
-							<li><a href="perfil.html" style="padding: 0%; width: 105px;">Perfil</a></li>
-                            <li><a href="perfil.html" style="padding: 0%; width: 105px;"> <img src="img/robertaoperfil.jpg" alt="imagem_perfil"></a></li>
+							<li><a class="active">Cadastro</a></li>     
+							<!-- <li><a href="perfil.php" style="padding: 0%; width: 105px;">Perfil</a></li> -->
+                            <!-- <li><a href="perfil.php" style="padding: 0%; width: 105px;"> <img src="img/robertaoperfil.jpg" alt="imagem_perfil"></a></li> -->
                         </ul>   
 						
                         <a class='menu-trigger'>
@@ -111,13 +111,13 @@
                 </label>
     
                 <label>
-                    <input class="input" type="text" placeholder="" required="">
+                    <input id="sobrenome" name="sobrenome" class="input" type="text" placeholder="" required="">
                     <span>Sobrenome</span>
                 </label>
             </div>  
             
             <label>
-                <input class="input" type="text" placeholder=" " maxlength="11" pattern="\d{11}" required="">
+                <input id="telefone" name="telefone" class="input" type="text" placeholder=" " maxlength="11" pattern="\d{11}" required="">
 
                 <span>Telefone</span>
             </label>
@@ -125,7 +125,7 @@
             <div class="input-span">
                 <label class="label" style="color: #777;">Data de Nascimento</label>
                 <div class="date-fields">
-                    <input class="input" type="date" placeholder="">
+                    <input id="data_nascimento" name="data_nascimento" class="input" type="date" placeholder="">
                 </div>
             </div>
 

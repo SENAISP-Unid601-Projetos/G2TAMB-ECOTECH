@@ -21,7 +21,7 @@ body {
 
 /* Container geral do perfil */
 .profile-container {
-    max-width: 940px;
+    max-width: 80% !important;
     margin: 40px auto;
     padding: 20px;
     background-color: #ffffff;
@@ -95,17 +95,20 @@ body {
 .posts-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+}
+
+.post-header{
+  cursor:pointer !important;
 }
 
 .post {
     position: relative;
-    overflow: hidden;
-    border-radius: 12px;
+    /*overflow: hidden;*/
+    width: 34%;
 }
 
 .post img {
-    width: 300px;
+    width: 90%;
     height: 300px;
     display: block;
     object-fit: cover;
@@ -114,6 +117,14 @@ body {
 
 .post:hover img {
     transform: scale(1.1);
+}
+
+.pLimitado{
+  width: 90%;
+  text-align:justify;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Responsividade */
@@ -435,6 +446,8 @@ button {
     transform: scale(0.97);
   }
  .postTexto{
+  width: 100%;
+  border-radius: 25px;
   padding: 30px;
   border: 1px solid #d4d4d4;
   margin-bottom: 10px;
@@ -446,7 +459,15 @@ button {
  .save{ 
     background: #195201;
     color: #fff;
-    justify-content: space-between;
+    text-align: center;
+    width: 80px;
+}
+
+.tchau{
+    background: #520101;
+    color: #fff;
+    text-align: center;
+    width: 80px;
 }
 
 .btns{

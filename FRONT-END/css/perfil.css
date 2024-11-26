@@ -11,6 +11,7 @@ button{
     border: 0px;
     background-color: #d7e9cf;
 }
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #c1e4b2;
@@ -20,7 +21,7 @@ body {
 
 /* Container geral do perfil */
 .profile-container {
-    max-width: 940px;
+    max-width: 80% !important;
     margin: 40px auto;
     padding: 20px;
     background-color: #ffffff;
@@ -34,7 +35,6 @@ body {
     display: flex;
     align-items: center;
     padding-bottom: 30px;
-    border-bottom: 1px solid #dbdbdb;
     margin-bottom: 20px;
 }
 
@@ -95,17 +95,20 @@ body {
 .posts-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+}
+
+.post-header{
+  cursor:pointer !important;
 }
 
 .post {
     position: relative;
-    overflow: hidden;
-    border-radius: 12px;
+    /*overflow: hidden;*/
+    width: 34%;
 }
 
 .post img {
-    width: 300px;
+    width: 90%;
     height: 300px;
     display: block;
     object-fit: cover;
@@ -114,6 +117,14 @@ body {
 
 .post:hover img {
     transform: scale(1.1);
+}
+
+.pLimitado{
+  width: 90%;
+  text-align:justify;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Responsividade */
@@ -387,7 +398,6 @@ button {
     font-weight: 500;
     background: transparent;
     color: rgb(60, 60, 60);
-    border: none;
     position: relative;
     overflow: hidden;
     border-radius: 0.6em;
@@ -435,4 +445,46 @@ button {
   button:active {
     transform: scale(0.97);
   }
-  
+ .postTexto{
+  width: 100%;
+  border-radius: 25px;
+  padding: 30px;
+  border: 1px solid #d4d4d4;
+  margin-bottom: 10px;
+ }
+ .activeNovo{
+  background-color: #96f09a;
+ }
+
+ .save{ 
+    background: #195201;
+    color: #fff;
+    text-align: center;
+    width: 80px;
+}
+
+.tchau{
+    background: #520101;
+    color: #fff;
+    text-align: center;
+    width: 80px;
+}
+
+.btns{
+  font-size: 17px;
+  font-family: inherit;
+  display: inline-block;
+  width: 6em;
+  height: 2.6em;
+  line-height: 2.5em;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 20px;
+  border: transparent;
+  background-color: transparent;
+}
+
+.btns:hover{
+  color: #2bac47;
+  border-bottom: 1px solid #2bac47;
+}
